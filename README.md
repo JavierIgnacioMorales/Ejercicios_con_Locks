@@ -64,8 +64,14 @@ El script incluye una función ***main()*** cuyo propósito es probar los métod
 
 3. Ejecute el programa y analice los resultados. Obtiene en alguna de las ejecuciones datos inconsistentes o errores? En caso afirmativo, analice los resultados identificando las causas de las inconsistencias o errores.
 
+* Se obtienen errores porque el metodo de extracción se encuentra con la cola vacia.
+
 4. Como modificaría la clase ***ColaFIFO*** de modo que su constructor reciba un argumento “size” que establezca el tamaño máximo (cantidad de elementos) de la cola, y modifique los métodos que sean necesarios para asegurar que la cantidad de elementos en la cola no supere esa cantidad de elementos.
+
+* Agregaría en el constructor un atributo size el cual recibe el valor por parametro al mimento de instanciar una cola.
 
 5. Modifique el programa de modo de instanciar una nueva cola de tamaño (size) 10 y modifique los retardos de productor y consumidor de modo que queden los dos iguales (1 segundo).
 
 6. Ejecute el programa y observe los resultados explicando lo que observa.
+
+* No llega a llenarse la cola que los errores son manifestados.
