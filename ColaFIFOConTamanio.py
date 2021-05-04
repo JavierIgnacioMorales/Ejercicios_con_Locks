@@ -1,15 +1,30 @@
+import threading
 
-class ColaFIFO:
 
-    def __init__(self):
+class ColaFIFOConTamanio:
+
+    def __init__(self, size):
         self.elementos = []
+        self.size = size
+        self.condition = threading.Condition()
 
     def insertar(self, dato):
+        self.condition.acquire()
+        while self.size == self.cantidad_elementos():
+            self.condition.wait()
         self.elementos.append(dato)
-        return dato
+        self.condition.notify()
+        self.condition.release()
 
     def extraer(self):
-        return self.elementos.pop(0)
+        self.condition.acquire()
+        while self.cantidad_elementos() == 0:
+            self.condition.wait()
+        elemento = self.elementos.pop(0)
+        self.condition.notify()
+        self.condition.release()
+        return elemento
+
 
     def ultimo(self):
         return self.elementos[-1]
@@ -25,7 +40,7 @@ class ColaFIFO:
 
 
 def main():
-    cola = ColaFIFO()
+    cola = ColaFIFOConTamanio(2)
 
     # check if esta_vacia()
 
