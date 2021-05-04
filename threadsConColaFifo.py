@@ -11,7 +11,6 @@ colaConTamanio = ColaFIFOConTamanio(10)
 
 logging.basicConfig(format="%(asctime)s.%(msecs)02d [%(threadName)s] - %(message)s", datefmt= "%H:%M:%S", level= logging.INFO)
 
-
 class Hilo (threading.Thread):
 
     def __init__(self, name, cola, retardo ):
